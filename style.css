@@ -1,0 +1,87 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  height: 100vh;
+  background: rgb(126, 165, 165);
+  display: flex;
+  font-family: 'Quicksand', sans-serif;
+  background-image: url(https://static.tumblr.com/ej6o0pi/g2Blyputq/bg-bob-esponja-direita.gif);
+}
+
+button{
+  font-family: 'Quicksand', sans-serif;
+  border-radius: 3px;
+  width: 150px;
+  font-size: 18px;
+}
+
+#cabecalho{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  margin: auto;
+}
+
+#cabecalho h1{
+  font-size: 40px;
+  padding-bottom: 10px;
+}
+
+#tabuleiro{
+  width: 560px;
+  height: 400px;
+  margin: 50px;
+  display: flex;
+  flex-wrap: wrap;  /*faz a quebra em relação ao tamanho, ficando assim, 4 colunas e 4 linhas*/
+  
+}
+
+#cronometro{
+  padding-top: 10px;
+}
+
+.carta-memoria{
+  width: 25%;
+  height: 33%;
+  margin: auto;
+  transform-style: preserve-3d; /*os elementos filhos estão no espaço 3D*/
+  position: relative; /*utilizado para o absolute ficar em relação a esse*/
+  transition:  transform  0.9s;
+}
+
+.carta-memoria:active{
+  transform: scale(0.98); /*ao clicar, ele mexe para trás e pra frente*/
+  transition:  transform 0.9s;
+  
+}
+.carta-memoria:hover{
+  box-shadow: 0 0 10px rgb(168, 170, 61);
+}
+
+.carta-memoria.flip{
+  transform: rotateY(180deg);
+}
+
+.frente, .verso{
+  width: 100%;
+  height: 100%;
+  /* background: #8b8a8a;  */
+  position: absolute;
+  border-radius: 5px;
+  /*transition: all 2s; transição da carta*/
+  backface-visibility: hidden; /* verso da imagem oculto */
+  
+}
+
+.frente{
+  transform: rotateY(180deg); 
+}
+
+.frente.flip{
+  transform: rotateY(0deg);
+}
+
